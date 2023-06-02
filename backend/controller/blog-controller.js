@@ -6,7 +6,7 @@ module.exports = {
     getAllBlogs : async(req,res) => {
         let blogs;
         try{
-            blogs = await Blog.find();
+            blogs = await Blog.find().populate("user");
         }catch(err){
             return console.log(err);
         }
@@ -118,6 +118,6 @@ module.exports = {
         if(!userblogs){
             return res.status(404).json({message:"No blog Found"});
         }
-        return res.status(200).json({blogs:userblogs});
+        return res.status(200).json({user : userblogs});
     },
 }

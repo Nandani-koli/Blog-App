@@ -67,7 +67,7 @@ module.exports = {
         {
             return res.status(400).json({message:"Incorrect password"});
         }
-        return res.status(200).json({message : "Login Successfull"});
+        return res.status(200).json({message : "Login Successfull", user : existinguser});
 
     }
 
